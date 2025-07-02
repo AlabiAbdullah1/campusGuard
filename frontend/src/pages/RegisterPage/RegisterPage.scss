@@ -1,0 +1,492 @@
+.registerPage {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @include md {
+    overflow-y: auto;
+  }
+
+  @include sm {
+    overflow-y: auto;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    height: 80vh;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #eeeeee82;
+    box-shadow: 0 7px 50px $shadow-color;
+
+    @include md {
+      height: 100vh;
+      width: 100%;
+      flex-direction: column-reverse;
+      padding: 1.5rem;
+      box-shadow: none;
+      background-color: transparent;
+      margin-bottom: 30px;
+    }
+
+    @include sm {
+      height: 100vh;
+      width: 100%;
+      flex-direction: column-reverse;
+      padding: 1.5rem;
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    .video-section {
+      position: relative;
+      display: flex;
+      flex-basis: 60%;
+      width: 80%;
+      height: 100%;
+      padding: 0 1.5rem;
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+
+      @include md {
+        width: 100%;
+      }
+
+      video,
+      .button-section {
+        position: absolute;
+      }
+
+      video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+
+      .text {
+        position: relative;
+        z-index: 2;
+
+        @include md {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        .title {
+          color: #eee;
+          font-size: 42px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          white-space: nowrap;
+
+          @include md {
+            font-size: 30px;
+            flex-direction: row;
+            justify-content: center;
+          }
+
+          @include sm {
+            font-size: 25px;
+          }
+
+          span:first-child {
+            @include md {
+              margin-right: 8px;
+            }
+          }
+        }
+
+        p {
+          color: #eee;
+          padding: 0.2rem 0.5rem;
+          font-weight: 400;
+        }
+      }
+
+      .button-section {
+        display: flex;
+        align-items: center;
+        bottom: 10px;
+        padding: 0 1rem;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.25);
+        left: 10px;
+        right: 10px;
+        justify-content: space-between;
+        backdrop-filter: blur(2px);
+        border-radius: 10px;
+        z-index: 3;
+
+        @include md {
+          height: 40px;
+        }
+
+        .text {
+          color: white;
+        }
+
+        .btn {
+          background-color: #ccc;
+          color: $primary-color;
+          padding: 0.8rem 1.5rem;
+          border-radius: 10px;
+          transition: 0.3s ease-in-out;
+          font-size: 14px;
+          border: 1px solid transparent;
+          white-space: nowrap;
+
+          @include md {
+            padding: 0.4rem 1.5rem;
+          }
+
+          &:hover {
+            background-color: $secondary-color;
+            border: 1px solid $primary-color;
+          }
+        }
+      }
+    }
+
+    .form-section {
+      display: flex;
+      align-items: center;
+      flex-basis: 70%;
+      flex-direction: column;
+      margin: auto;
+      gap: 1.5rem;
+      transform: translateY(-0.5rem);
+
+      @include md {
+        gap: 1rem;
+        transform: translateY(0.5rem);
+      }
+
+      .header {
+        text-align: center;
+        padding: 0.5rem 0 1rem 0;
+        margin-top: 10px;
+
+        @include md {
+          padding: 1rem 0;
+        }
+
+        img {
+          width: 80px;
+          padding-bottom: 0.5rem;
+
+          @include md {
+            width: 45px;
+            padding-bottom: 0.2rem;
+          }
+        }
+
+        h3 {
+          font-size: 25px;
+          color: #111;
+          font-weight: 600;
+
+          @include md {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .form {
+        display: grid;
+        align-items: center;
+        gap: 0.5rem;
+
+        @include md {
+          gap: 0.3rem;
+        }
+
+        .form-step {
+          display: none;
+          opacity: 0;
+          transform: translateX(-20px);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-step.active {
+          display: block;
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .profileImage {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          @include md {
+            margin-top: 30px;
+          }
+
+          img {
+            width: 128px;
+            height: 128px;
+            margin-bottom: 12px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid $primary-color;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+          }
+
+          img:hover {
+            box-shadow: 0 0 15px $primary-color;
+          }
+
+          span {
+            cursor: pointer;
+            display: inline-block;
+
+            .cloudinary-button {
+              border: none;
+              padding: 8px 18px;
+              background-color: $primary-color;
+              color: #fff;
+              font-size: 14px;
+              font-weight: 600;
+              border-radius: 25px;
+              transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+              box-shadow: 0 3px 8px rgba(0, 127, 212, 0.6);
+              user-select: none;
+
+              &:hover {
+                background-color: $hover-color;
+                box-shadow: 0 5px 12px rgba(0, 127, 212, 0.8);
+              }
+            }
+          }
+        }
+
+        .single-input {
+          margin-top: 16px;
+          width: 100%;
+          position: relative;
+
+          .input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+            border: 2px solid grey;
+
+            .icon {
+              color: grey;
+            }
+
+            input {
+              background: none;
+              outline: none;
+              border: none;
+              width: 300px;
+              font-size: 14px;
+            }
+          }
+
+          label {
+            color: #111;
+            font-weight: 400;
+            font-size: 15px;
+          }
+        }
+
+        .multi-input-2 {
+          width: 100%;
+          display: flex;
+          gap: 20px;
+
+          .single-input {
+            width: 50%;
+            position: relative;
+
+            .input {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 1rem;
+              background-color: #fff;
+              border-radius: 10px;
+              backdrop-filter: blur(2px);
+              border: 2px solid grey;
+
+              .icon {
+                color: grey;
+              }
+
+              input {
+                background: none;
+                outline: none;
+                border: none;
+                width: 140px;
+                font-size: 14px;
+              }
+            }
+
+            label {
+              color: #111;
+              font-weight: 400;
+              font-size: 15px;
+            }
+          }
+        }
+
+        .multi-input-3 {
+          width: 100%;
+          display: flex;
+          gap: 10px;
+
+          .single-input {
+            width: 33%;
+            position: relative;
+
+            .input {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 1rem 0.5rem !important;
+              background-color: #fff;
+              border-radius: 10px;
+              backdrop-filter: blur(2px);
+              border: 2px solid grey;
+
+              .icon {
+                color: grey;
+              }
+
+              input {
+                background: none;
+                outline: none;
+                border: none;
+                width: 90px;
+                font-size: 14px;
+              }
+
+              select {
+                width: 100%;
+                border: none;
+                border-radius: 4px;
+                font-size: 14px;
+
+                &:focus {
+                  outline: none;
+                }
+
+                &::placeholder {
+                  color: #aaa;
+                }
+              }
+            }
+
+            label {
+              color: #111;
+              font-weight: 400;
+              font-size: 15px;
+            }
+          }
+        }
+
+        .check-input {
+          margin-top: 10px;
+          width: 100%;
+
+          label {
+            font-weight: 300;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .btns {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 1rem;
+
+        button {
+          cursor: pointer;
+          font-size: 16px;
+          padding: 12px 20px;
+          border-radius: 50px;
+          background-color: $primary-color;
+          border: none;
+          color: white;
+          font-weight: 600;
+          box-shadow: 0 3px 15px rgba(0, 127, 212, 0.6);
+          transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover:enabled {
+            background-color: $hover-color;
+            box-shadow: 0 5px 20px rgba(0, 127, 212, 0.8);
+          }
+
+          &:disabled {
+            background-color: #bbb;
+            cursor: not-allowed;
+            box-shadow: none;
+          }
+        }
+
+        .next-btn {
+          background-color: $primary-color;
+          color: white;
+          padding: 12px 35px;
+          font-weight: 600;
+          font-size: 16px;
+          border-radius: 50px;
+          border: none;
+          cursor: pointer;
+          box-shadow: 0 5px 15px rgba(0, 127, 212, 0.7);
+          transition: background-color 0.3s ease, box-shadow 0.3s ease;
+          user-select: none;
+          white-space: nowrap;
+
+          &:hover {
+            background-color: $hover-color;
+            box-shadow: 0 7px 25px rgba(0, 127, 212, 0.9);
+          }
+
+          &:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}

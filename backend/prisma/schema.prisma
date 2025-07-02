@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  fname String
+  lname String
+  email String @unique
+  password String
+  mobile String?
+  avatar String?
+  createdAt DateTime? @default(now())
+  incidents Incident[]
+  verificationToken String?
+  isVerified Boolean?
+}
+
+model Admin {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  fullName String
+  username String @unique
+  email String
+  avatar String?
+  password String
+  department String
+  mobile String
+  isMaster Boolean
+  createdAt DateTime? @default(now())
+  incidents Incident[]
+  sentMails Email[] 
+}
+
+model Email {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  message String
+  location String
+  userCount Int
+  createdAt DateTime? @default(now()) 
+  sentBy Admin? @relation(fields: [sentById], references: [id])
+  sentById String? @db.ObjectId
+  incident Incident @relation(fields: [incidentId], references: [id]) 
+  incidentId String @db.ObjectId
+}
+
+model Incident {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  type String
+  title String
+  description String?
+  locationName String?
+  locationDetail String?
+  images String[]
+  longitude String
+  latitude String
+  createdAt DateTime @default(now())
+  isApproved String  @default("pending")
+  sentEmail Boolean @default(false)
+  approvedAt DateTime? 
+  approvedBy Admin? @relation(fields: [approvedById], references: [id])
+  approvedById String? @db.ObjectId
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId String? @db.ObjectId
+  incidentDetail IncidentDetail?
+  sentMails Email[] 
+}
+
+
+model IncidentDetail {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  deaths Int?
+  casualties Int?
+  incident Incident @relation(fields:[incidentId], references: [id], onDelete: Cascade)
+  incidentId String @db.ObjectId @unique
+}
+
+
+
+
+
+// After Edit run "npx prisma db push"
+// npx prisma generate

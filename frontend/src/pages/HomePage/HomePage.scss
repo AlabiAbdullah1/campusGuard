@@ -1,0 +1,100 @@
+.homePage {
+    display: flex;
+    height: 100%;
+
+    .textPart {
+        flex: 3;
+
+        .wrapper {
+            padding-right: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+            height: 100%;
+
+            .title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+                letter-spacing: 1px;
+
+                span {
+                    color: $primary-color;
+                    font-weight: 700;
+                    font-size: 3.5rem;
+                }
+            }
+
+            .hero-btn {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                justify-content: flex-start;
+                white-space: nowrap;
+                transition: box-shadow 2s ease;
+                align-items: center;
+                text-align: center;
+                transition: all .3s ease-in-out;
+
+                .icon {
+                    transform: translateY(5px);
+                }
+
+                a:first-child {
+                    color: #eee;
+                    background-color: $primary-color;
+                    border: 4px solid $primary-color;
+                    padding: 8px 20px;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                        background-color: #007fd4d2;
+                        
+                    }
+                }
+
+                a {
+                    padding: 10px 20px;
+                    border-radius: 10px;
+                    border: 2px solid $primary-color;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background-color: $primary-color;
+                        color: #eee;
+                        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    }
+
+    .imagePart {
+        flex: 2;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            right: 0;
+            animation: float 3s ease-in-out infinite;
+
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-30px);
+                }
+            }
+        }
+
+        @include md {
+            display: none;
+        }
+    }
+}
