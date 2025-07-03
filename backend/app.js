@@ -11,15 +11,20 @@ import adminRoute from "./routes/admin.route.js";
 import anonymousRoute from "./routes/anonymous.route.js";
 
 dotenv.config();
-const port = process.env.PORT||8000;
+const port = process.env.PORT||8800;
 const app = express()
 
 const corsOptions = {
-    // origin: [process.env.CLIENT_URL, process.env.ADMIN_URL],
-    // origin: ['http://localhost:5173', 'http://localhost:5174', 'https://campus-guard.vercel.app'],
-    origin: ['https://campusguard.onrender.com', 'https://campus-guard.vercel.app', 'http://localhost:5173', 'http://localhost:5174'],
+    origin: [
+        'https://campusguard.onrender.com', 
+        'https://campus-guard.vercel.app', 
+        'https://campus-guard-*.vercel.app', 
+        'http://localhost:5173', 
+        'http://localhost:5174'
+    ],
     credentials: true
 }
+
 app.use(cors(corsOptions))
 // app.use(cors())
 app.use(bodyParser.json());
