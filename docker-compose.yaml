@@ -3,16 +3,16 @@ version: '3.8'
 services:
   backend:
     build: ./backend
-    image: kaxun/warmhands-backend:latest  # Specify image name
+    image: kaxun/campus-guard-backend:latest  # Specify image name
     container_name: backend_container
     ports:
       - "8800:8800"
     environment:
-      MONGO_URL: mongodb+srv://alertwarmhands:UqeSH08WeYo2Ape4@warmhands.lvi1ehg.mongodb.net/warmhands?retryWrites=true&w=majority&appName=WarmHands
+      MONGO_URL: mongodb+srv://alabiabdullah1:Olasubomi123!@incident-reporting.45eivkr.mongodb.net/incident-reporting?retryWrites=true&w=majority&appName=incident-reporting
 
   frontend:
     build: ./frontend
-    image: kaxun/warmhands-frontend:latest  # Specify image name
+    image: kaxun/campus-guard-frontend:latest  # Specify image name
     container_name: frontend_container
     ports:
       - "5173:5173"
