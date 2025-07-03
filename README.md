@@ -67,3 +67,4 @@ npm run dev
 3. Report an incident by filling out the incident report form.
 4. Admin will verify the report.
 5. Verified incidents will trigger email notifications to users in the affected area.
+
