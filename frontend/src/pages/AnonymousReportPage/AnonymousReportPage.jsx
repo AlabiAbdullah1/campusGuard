@@ -35,7 +35,7 @@ export const AnonymousReportPage = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:8800/api/anonymous', {
+      const res = await axios.post('https://campusguard.onrender.com/api/anonymous', {
         incidentData: {
           ...formData,
           images,
