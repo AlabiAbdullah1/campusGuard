@@ -16,7 +16,8 @@ const app = express()
 
 const corsOptions = {
     // origin: [process.env.CLIENT_URL, process.env.ADMIN_URL],
-    origin: ['http://localhost:5173', 'http://localhost:5174', 'https://campus-guard.vercel.app'],
+    // origin: ['http://localhost:5173', 'http://localhost:5174', 'https://campus-guard.vercel.app'],
+    origin: ['https://campusguard.onrender.com', 'https://campus-guard.vercel.app', 'http://localhost:5173', 'http://localhost:5174'],
     credentials: true
 }
 app.use(cors(corsOptions))
