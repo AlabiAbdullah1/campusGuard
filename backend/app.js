@@ -14,18 +14,12 @@ dotenv.config();
 const port = process.env.PORT||8800;
 const app = express()
 
-const corsOptions = {
-    origin: [
-        'https://campusguard.onrender.com', 
-        'https://campus-guard.vercel.app', 
-        'https://campus-guard-*.vercel.app', 
-        'http://localhost:5173', 
-        'http://localhost:5174'
-    ],
+app.use(cors({
+    origin: true,
     credentials: true
-}
+}));
 
-app.use(cors(corsOptions))
+
 // app.use(cors())
 app.use(bodyParser.json());
 app.use(cookieParser());
