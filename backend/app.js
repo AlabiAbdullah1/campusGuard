@@ -14,13 +14,13 @@ dotenv.config();
 const port = process.env.PORT||8800;
 const app = express()
 
-// app.use(cors({
-//     origin: true,
-//     credentials: true
-// }));
+app.use(cors({
+  origin: "https://campus-guard.vercel.app/", 
+  credentials: true
+}));
 
 
-app.use(cors())
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 
