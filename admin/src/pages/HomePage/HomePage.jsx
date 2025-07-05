@@ -4,6 +4,7 @@ import { Widget } from '../../components/Widget/Widget';
 import { Chart } from '../../components/Chart/Chart';
 import { FeatureChart } from '../../components/FeatureChart/FeatureChart';
 import { HomeTable } from '../../components/HomeTable/HomeTable';
+import apiReq from '../../lib/apiReq';
 
 const INCIDENT_CATEGORIES = ['Health-related incidents', 'Security-breaches'];
 
@@ -14,7 +15,7 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8800/api/incidents');
+        const response = await apiReq.get('/incidents');
         const incidents = response.data;
         setData(incidents);
 

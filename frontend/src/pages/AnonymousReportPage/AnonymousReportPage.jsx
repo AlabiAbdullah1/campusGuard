@@ -6,6 +6,7 @@ import { IncidentMap } from '../../components/Map/Map';
 import UploadWidget from '../../components/UploadWidget/UploadWidget';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import apiReq from '../../lib/apiReq';
 
 export const AnonymousReportPage = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ export const AnonymousReportPage = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post('https://campusguard.onrender.com/api/anonymous', {
+      const res = await apiReq.post('/anonymous', {
         incidentData: {
           ...formData,
           images,

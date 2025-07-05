@@ -58,9 +58,9 @@ export const Navbar = () => {
           <Link className={`link ${isActive("/news") ? "active" : ""}`} to="/news" data-item="News">
             News
           </Link>
-          <Link className={`link ${isActive("/map") ? "active" : ""}`} to="/map" data-item="Map">
+          {/* <Link className={`link ${isActive("/map") ? "active" : ""}`} to="/map" data-item="Map">
             Map
-          </Link>
+          </Link> */}
           <Link className={`link ${isActive("/contact") ? "active" : ""}`} to="/contact" data-item="Contact">
             Contact
           </Link>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { IncidentMap } from '../../components/Map/Map';
+import apiReq from '../../lib/apiReq';
 
 export const MapPage = () => {
   const [data, setData] = useState([]);
@@ -8,7 +9,7 @@ export const MapPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8800/api/incidents');
+        const response = await apiReq.get('/incidents');
         const approvedIncidents = response.data.filter(
           (incident) => incident.isApproved === 'approved'
         );

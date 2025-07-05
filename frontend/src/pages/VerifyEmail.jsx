@@ -1,8 +1,8 @@
 // pages/VerifyPage.tsx
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
+import apiReq from "../lib/apiReq";
 
 const VerifyPage = () => {
     const { token } = useParams();
@@ -11,7 +11,7 @@ const VerifyPage = () => {
     useEffect(() => {
         const verify = async () => {
             try {
-                const res = await axios.get(`http://localhost:8800/api/auth/user/verify/${token}`);
+                const res = await apiReq.get(`/user/verify/${token}`);
                 toast.success(res.data.message);
                 navigate("/signin");
             } catch (err) {

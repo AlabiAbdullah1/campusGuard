@@ -12,7 +12,7 @@ export const IncidentReportPage = () => {
     title: '',
     description: '',
     locationName: 'University Of Ilorin',
-    locationDetail: '', // Changed to match Prisma model
+    locationDetail: '', 
     latitude: '8.4799',
     longitude: '4.6716',
     deaths: 0,
@@ -203,7 +203,7 @@ export const IncidentReportPage = () => {
               <div className="input-single">
                 <label htmlFor="casualities">Casualties</label>
                 <input
-                  name="casualities"
+                  name="casualties"
                   type="number"
                   min="0"
                   value={formData.casualties}

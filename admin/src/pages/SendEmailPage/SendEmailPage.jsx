@@ -5,6 +5,7 @@ import DOMPurify from 'dompurify';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AdminAuthContext } from '../../context/AuthContext';
+import apiReq from '../../lib/apiReq';
 
 export const SendEmailPage = () => {
   const incident = useLoaderData();
@@ -79,8 +80,8 @@ View the full disaster report here: http://localhost:5174/${incident.id}`;
       console.log('Message:', message);
       console.log('Admin ID:', currentAdmin?.id);
 
-      await axios.post(
-        `http://localhost:8800/api/users/send-emails`,
+      await apiReq.post(
+        `/users/send-emails`,
         {
           subject,
           message,
@@ -88,8 +89,8 @@ View the full disaster report here: http://localhost:5174/${incident.id}`;
         { withCredentials: true }
       );
 
-      await axios.post(
-        `http://localhost:8800/api/emails/add`,
+      await apiReq.post(
+        `/emails/add`,
         {
           title: subject,
           location: incident.locationDetail,

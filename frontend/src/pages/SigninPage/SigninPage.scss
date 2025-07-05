@@ -326,6 +326,43 @@
     color: grey;
   }
 
+ .signin-text.rolling {
+  display: inline-block;
+  animation: roll 0.5s infinite linear;
+  transform-origin: center center;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.signin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.signin-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
   .btn {
     .icon {
       margin-left: 0.5rem;

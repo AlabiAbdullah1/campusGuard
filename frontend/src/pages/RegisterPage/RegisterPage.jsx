@@ -9,7 +9,6 @@ import LoginIcon from '@mui/icons-material/Login';
 import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
 import PersonIcon from '@mui/icons-material/Person';
-import ArrowBackIcon from '@mui/icons-material/ArrowBackIosNew';
 import UploadWidget from '../../components/UploadWidget/UploadWidget';
 
 export const RegisterPage = () => {

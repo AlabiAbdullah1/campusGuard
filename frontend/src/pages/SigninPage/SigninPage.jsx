@@ -13,6 +13,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 export const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isRolling, setIsRolling] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ export const SigninPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setIsRolling(true);
 
     const formData = new FormData(e.target);
     const email = formData.get("email");
@@ -43,6 +45,7 @@ export const SigninPage = () => {
     if (!email || !password) {
       toast.error("Please fill out all fields.");
       setIsLoading(false);
+      setIsRolling(false);
       return;
     }
 
@@ -59,6 +62,7 @@ export const SigninPage = () => {
       toast.error(error?.response?.data?.message || "Login failed");
     } finally {
       setIsLoading(false);
+      setIsRolling(false);
     }
   };
 
@@ -124,8 +128,14 @@ export const SigninPage = () => {
               </div>
             </div>
 
-            <button type="submit" disabled={isLoading} className="signin-btn">
-              <span>Sign in</span>
+            <button 
+              type="submit" 
+              disabled={isLoading} 
+              className="signin-btn"
+            >
+              <span className={`signin-text ${isRolling ? "rolling" : ""}`}>
+                Sign in
+              </span>
               <LoginIcon className="icon" />
             </button>
           </form>

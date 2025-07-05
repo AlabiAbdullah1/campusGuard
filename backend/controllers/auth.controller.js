@@ -33,7 +33,7 @@ export const registerUser = async (req, res) => {
         subject:"Verify your email address",
         html: `<h1>Verify your email address</h1>
                <p>This is your verification token: <strong>${verificationToken}</strong></p>
-               <p>Click <a href="http://localhost:5173/verify/${verificationToken}">here</a> to verify your email address.</p>`
+               <p>Click <a href="https://campus-guard.vercel.app/verify/${verificationToken}">here</a> to verify your email address.</p>`
       })
         res.status(201).json({message: "User registered successfully."});
     } catch(error) {

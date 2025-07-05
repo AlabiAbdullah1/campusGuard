@@ -13,6 +13,7 @@ import {
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import apiReq from '../../lib/apiReq';
 
 export const IncidentPage = () => {
  const initialIncident = useLoaderData();; // Fetch incident data
@@ -50,8 +51,8 @@ export const IncidentPage = () => {
       return true;
     } else {
     try {
-      await axios.put(
-        `http://localhost:8800/api/incidents/${incident.id}/approve`
+      await apiReq.put(
+        `/incidents/${incident.id}/approve`
       );
       setIncident((prev) => ({ ...prev, isApproved: 'approved' }));
       toast.success('Incident approved successfully!', {
@@ -66,8 +67,8 @@ export const IncidentPage = () => {
 
   const handleReject = async () => {
     try {
-      await axios.put(
-        `http://localhost:8800/api/incidents/${incident.id}/reject`
+      await apiReq.put(
+        `/incidents/${incident.id}/reject`
       );
       setIncident((prev) => ({ ...prev, isApproved: 'rejected' }));
       toast.success('Incident rejected successfully!', {
