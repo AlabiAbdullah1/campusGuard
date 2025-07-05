@@ -48,15 +48,11 @@ export const SigninPage = () => {
     }
 
     try {
-      // const res = await apiReq.post("/auth/user/signin", {
-      //   email,
-      //   password,
-      // });
-
-      const res= axios.post("https://campusguard.onrender.com/api/auth/user/signin", {
+      const res = await apiReq.post("/auth/user/signin", {
         email,
         password,
-      })
+      });
+
 
       updateUser(res.data);
       navigate("/");
