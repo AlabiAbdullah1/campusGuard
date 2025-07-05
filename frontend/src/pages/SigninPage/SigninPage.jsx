@@ -9,6 +9,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import LoginIcon from "@mui/icons-material/Login";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import axios from "axios";
 
 export const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -47,10 +48,15 @@ export const SigninPage = () => {
     }
 
     try {
-      const res = await apiReq.post("/auth/user/signin", {
+      // const res = await apiReq.post("/auth/user/signin", {
+      //   email,
+      //   password,
+      // });
+
+      const res= axios.post("https://campusguard.onrender.com/api/auth/user/signin", {
         email,
         password,
-      });
+      })
 
       updateUser(res.data);
       navigate("/");
