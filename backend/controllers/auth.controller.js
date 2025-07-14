@@ -161,11 +161,13 @@ export const registerAdmin = async (req, res) => {
       where: { id: tokenAdminId },
       select: { isMaster: true },
     });
+    console.log(tokenAdminId)
 
     if (!requestingAdmin.isMaster) {
       return res.status(403).json({
         message: 'You are not authorized to Register Admins.',
       });
+      
     }
 
     const newAdmin = await prisma.admin.create({

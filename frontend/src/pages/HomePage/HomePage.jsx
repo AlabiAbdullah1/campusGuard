@@ -7,7 +7,7 @@ import Cyclone from "../../assets/cyclone.svg";
 import Flood from "../../assets/flood.svg";
 import Tsunami from "../../assets/tsunami.svg";
 import Fire from "../../assets/fire.svg";
-// import AddBoxIcon from '@mui/icons-material/AddBox';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import MapIcon from "@mui/icons-material/Map";
 import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
 
@@ -50,10 +50,10 @@ export const HomePage = () => {
             <Link to={"/news"}>
               Latest Updates <ViewCarouselIcon className="icon" />
             </Link>
-            <Link to={"/map"}>
+            {/* <Link to={"/map"}>
               Disaster Map <MapIcon className="icon" />
-            </Link>
-            {/* <Link to={currentUser ? "/report" : "/signin"}>Report Disaster <AddBoxIcon className="icon"/></Link> */}
+            </Link> */}
+            <Link to={currentUser ? "/report" : "/signin"}>Report Incident <AddBoxIcon className="icon"/></Link>
           </div>
         </div>
       </div>

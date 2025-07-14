@@ -9,7 +9,7 @@ userRoute.post('/user/signin', signinUser);
 userRoute.post('/user/logout', logoutUser);
 userRoute.get("/user/verify/:token", verifyEmail)
 
-userRoute.post('/admin/register', verifyAdminToken ,registerAdmin);
+userRoute.post('/admin/register',verifyAdminToken,registerAdmin);
 userRoute.post('/admin/signin', signinAdmin);
 userRoute.post('/admin/logout', logoutAdmin);
 

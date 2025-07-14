@@ -98,6 +98,7 @@ export const IncidentReportPage = () => {
                   <option value="Infrastructure issues">Infrastructure issues</option>
                   <option value="Emergency services">Emergency services</option>
                   <option value="Environmental concerns">Environmental concerns</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               <div className="input-single">

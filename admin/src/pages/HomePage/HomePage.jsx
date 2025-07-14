@@ -6,7 +6,7 @@ import { FeatureChart } from '../../components/FeatureChart/FeatureChart';
 import { HomeTable } from '../../components/HomeTable/HomeTable';
 import apiReq from '../../lib/apiReq';
 
-const INCIDENT_CATEGORIES = ['Health-related incidents', 'Security-breaches'];
+const INCIDENT_CATEGORIES = ['Health-related incidents', 'Security-breaches', 'Infrastructure issues', 'Emergency services', 'Environmental concerns', 'Other'];
 
 export const HomePage = () => {
   const [data, setData] = useState([]);

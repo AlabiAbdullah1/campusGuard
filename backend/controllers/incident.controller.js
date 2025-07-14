@@ -196,7 +196,7 @@ export const addAnonymousIncident = async (req, res) => {
         ...cleanIncidentData,
         userId: null, 
         incidentDetail: {
-          create: incidentDetail, // Contains deaths & casualties
+          create: incidentDetail, 
         },
       },
     });

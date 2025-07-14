@@ -1,7 +1,11 @@
-import './widget.scss';
+import './Widget.scss';
 import ReportIcon from '@mui/icons-material/Report';
 import SecurityIcon from '@mui/icons-material/Security';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import EmergencyIcon from '@mui/icons-material/Emergency';
+// import EcoIcon from '@mui/icons-material/Eco';
+
 
 export const Widget = ({ type, totalCount, previousCount }) => {
   let data;
@@ -10,7 +14,7 @@ export const Widget = ({ type, totalCount, previousCount }) => {
     case 'Health-related incidents':
       data = {
         title: 'HEALTH INCIDENTS',
-        link: 'View all',
+        // link: 'View all',
         icon: (
           <HealthAndSafetyIcon
             className="icon"
@@ -22,9 +26,57 @@ export const Widget = ({ type, totalCount, previousCount }) => {
     case 'Security-breaches':
       data = {
         title: 'SECURITY BREACHES',
-        link: 'View all',
+        // link: '/incidents',
         icon: (
           <SecurityIcon
+            className="icon"
+            style={{ color: 'red', backgroundColor: 'rgba(255,0,0,0.1)' }}
+          />
+        ),
+      };
+      break;
+       case 'Infrastructure issues':
+      data = {
+        title: 'INFRASTRUCTURE ISSUES',
+        // link: 'View all',
+        icon: (
+          <EngineeringIcon
+            className="icon"
+            style={{ color: 'red', backgroundColor: 'rgba(255,0,0,0.1)' }}
+          />
+        ),
+      };
+      break;
+      case 'Emergency services':
+      data = {
+        title: 'EMERGENCY SERVICES',
+        // link: 'View all',
+        icon: (
+          <EmergencyIcon
+            className="icon"
+            style={{ color: 'red', backgroundColor: 'rgba(255,0,0,0.1)' }}
+          />
+        ),
+      };
+      break;
+      case 'Environmental concerns':
+      data = {
+        title: 'ENVIRONMENTAL CONCERNS',
+        // link: 'View all',
+        icon: (
+          <HealthAndSafetyIcon
+            className="icon"
+            style={{ color: 'red', backgroundColor: 'rgba(255,0,0,0.1)' }}
+          />
+        ),
+      };
+      break;
+      case 'Other':
+      data = {
+        title: 'OTHER INCIDENTS',
+        // link: 'View all',
+        icon: (
+          <ReportIcon
             className="icon"
             style={{ color: 'red', backgroundColor: 'rgba(255,0,0,0.1)' }}
           />
@@ -34,7 +86,7 @@ export const Widget = ({ type, totalCount, previousCount }) => {
     default:
       data = {
         title: 'UNKNOWN INCIDENTS',
-        link: 'View all',
+        // link: 'View all',
         icon: (
           <ReportIcon
             className="icon"
