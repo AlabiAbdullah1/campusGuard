@@ -90,14 +90,14 @@ export const signinUser = async (req, res) => {
 
         if(!user) return res.status(401).json({ message: 'Invalid credentials.' });
 
-        const verifiedUser = await prisma.user.findUnique({
-        where: {email: email},
-        select: {isVerified: true}
-    })
+    //     const verifiedUser = await prisma.user.findUnique({
+    //     where: {email: email},
+    //     select: {isVerified: true}
+    // })
 
-    if(!verifiedUser.isVerified){
-      return res.status(401).json({ message: 'Please check your inbox and verify your email address.' });
-    }
+    // if(!verifiedUser.isVerified){
+    //   return res.status(401).json({ message: 'Please check your inbox and verify your email address.' });
+    // }
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) return res.status(401).json({ message: 'Check your password again.' });
