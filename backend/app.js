@@ -15,7 +15,7 @@ const port = process.env.PORT||8800;
 const app = express()
 
 app.use(cors({
-  origin: ["https://campus-guard.vercel.app/", "http://localhost:5173", "http://localhost:5174"],
+  origin: ["https://campus-guard.vercel.app", "http://localhost:5173", "http://localhost:5174"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
